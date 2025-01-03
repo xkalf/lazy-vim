@@ -70,3 +70,6 @@ end)
 keymap.set("n", "<leader>i", function()
   require("craftzdog.lsp").toggleInlayHints()
 end)
+
+-- Exit terminal Mode
+keymap.set("t", "<C-k>", "<C-\\><C-n>")
