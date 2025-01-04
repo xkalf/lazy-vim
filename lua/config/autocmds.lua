@@ -8,11 +8,15 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 
--- Check if 'pwsh' is executable and set the shell accordingly
-if vim.fn.executable("pwsh") == 1 then
-  vim.o.shell = "pwsh"
-else
-  vim.o.shell = "powershell"
+local uname = vim.loop.os_uname().sysname
+
+if uname == "Windows_NT" then
+  -- Check if 'pwsh' is executable and set the shell accordingly
+  if vim.fn.executable("pwsh") == 1 then
+    vim.o.shell = "pwsh"
+  else
+    vim.o.shell = "powershell"
+  end
 end
 
 -- Setting shell command flags
