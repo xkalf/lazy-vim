@@ -145,7 +145,10 @@ return {
           "gd",
           function()
             -- DO NOT RESUSE WINDOW
-            require("telescope.builtin").lsp_definitions({ reuse_win = false })
+            require("telescope.builtin").lsp_definitions({
+              layout_strategy = "horizontal",
+              layout_config = { promp_position = "top" },
+            })
           end,
           desc = "Goto Definition",
           has = "definition",
